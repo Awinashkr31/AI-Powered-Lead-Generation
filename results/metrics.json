@@ -1,0 +1,102 @@
+{
+  "project": "AI-Powered Lead Generation (Lead Scoring)",
+  "dataset": {
+    "name": "UCI Bank Marketing (bank-full.csv)",
+    "source_url": "https://archive.ics.uci.edu/static/public/222/bank+marketing.zip",
+    "target_definition": "y = client subscribed a term deposit (yes=1) after a marketing contact; used as the lead-conversion outcome",
+    "excluded_features": {
+      "duration": "last call duration in seconds - only known after the call ends, so it is leakage for lead prioritisation"
+    },
+    "rows": 45211,
+    "columns": 16,
+    "conversion_rate": 0.117,
+    "converted_leads": 5289
+  },
+  "split": {
+    "train_size": 36168,
+    "test_size": 9043,
+    "test_fraction": 0.2,
+    "random_state": 42
+  },
+  "models": {
+    "Logistic Regression": {
+      "accuracy": 0.7548,
+      "precision": 0.2662,
+      "recall": 0.6238,
+      "f1_score": 0.3732,
+      "roc_auc": 0.7722,
+      "confusion_matrix": [
+        [
+          6166,
+          1819
+        ],
+        [
+          398,
+          660
+        ]
+      ]
+    },
+    "Random Forest": {
+      "accuracy": 0.8792,
+      "precision": 0.481,
+      "recall": 0.4064,
+      "f1_score": 0.4406,
+      "roc_auc": 0.7927,
+      "confusion_matrix": [
+        [
+          7521,
+          464
+        ],
+        [
+          628,
+          430
+        ]
+      ]
+    },
+    "XGBoost": {
+      "accuracy": 0.8237,
+      "precision": 0.3559,
+      "recall": 0.6257,
+      "f1_score": 0.4537,
+      "roc_auc": 0.7971,
+      "confusion_matrix": [
+        [
+          6787,
+          1198
+        ],
+        [
+          396,
+          662
+        ]
+      ]
+    }
+  },
+  "best_model": "XGBoost",
+  "best_model_metrics": {
+    "accuracy": 0.8237,
+    "precision": 0.3559,
+    "recall": 0.6257,
+    "f1_score": 0.4537,
+    "roc_auc": 0.7971,
+    "confusion_matrix": [
+      [
+        6787,
+        1198
+      ],
+      [
+        396,
+        662
+      ]
+    ]
+  },
+  "lead_score_bands": {
+    "Hot": "score >= 70",
+    "Warm": "40 <= score < 70",
+    "Cold": "score < 40",
+    "test_set_band_counts": {
+      "Cold": 6028,
+      "Warm": 2080,
+      "Hot": 935
+    }
+  }
+}

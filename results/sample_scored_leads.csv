@@ -1,0 +1,11 @@
+age,job,marital,education,balance,housing,loan,contact,poutcome,conversion_probability,lead_score,band,actual_converted
+20,student,single,secondary,215,no,no,cellular,success,0.9948,99,Hot,1
+25,student,single,secondary,469,no,no,cellular,success,0.9881,99,Hot,0
+54,technician,married,tertiary,876,no,no,cellular,success,0.9868,99,Hot,1
+60,retired,married,secondary,523,no,no,cellular,success,0.9862,99,Hot,1
+36,technician,married,tertiary,341,no,no,cellular,success,0.9869,99,Hot,1
+29,technician,single,secondary,113,no,no,cellular,success,0.9876,99,Hot,1
+72,retired,married,tertiary,3561,no,no,telephone,success,0.986,99,Hot,1
+48,unemployed,married,secondary,926,no,no,cellular,success,0.9882,99,Hot,1
+39,management,divorced,tertiary,224,no,no,cellular,success,0.9756,98,Hot,1
+58,management,married,tertiary,473,no,no,cellular,success,0.9761,98,Hot,1

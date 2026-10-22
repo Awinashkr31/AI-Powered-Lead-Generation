@@ -1,0 +1,41 @@
+
+--- EDA summary ---
+Shape                 : 45211 rows x 16 columns
+Converted leads (1)   : 5289
+Not converted (0)     : 39922
+Conversion rate       : 11.70%
+Age                   : min 18, median 39.0, max 95
+Avg balance (EUR)     : converters 1804 vs non-converters 1304
+Missing values total  : 0
+
+Train size: 36168 | Test size: 9043
+
+--- Model results (test set) ---
+Logistic Regression  acc=0.7548  prec=0.2662  rec=0.6238  f1=0.3732  roc_auc=0.7722
+Random Forest        acc=0.8792  prec=0.4810  rec=0.4064  f1=0.4406  roc_auc=0.7927
+XGBoost              acc=0.8237  prec=0.3559  rec=0.6257  f1=0.4537  roc_auc=0.7971
+
+Best model by F1-score: XGBoost (F1 = 0.4537)
+Confusion matrix [[TN, FP], [FN, TP]]: [[6787, 1198], [396, 662]]
+
+--- Lead-score bands on the test set ---
+Hot  :   935 leads, actual conversion rate in band: 51.66%
+Warm :  2080 leads, actual conversion rate in band: 13.94%
+Cold :  6028 leads, actual conversion rate in band: 4.73%
+
+Top 10 scored leads (test set):
+ age        job  marital education  balance housing loan   contact poutcome  conversion_probability  lead_score band  actual_converted
+  20    student   single secondary      215      no   no  cellular  success                  0.9948          99  Hot                 1
+  25    student   single secondary      469      no   no  cellular  success                  0.9881          99  Hot                 0
+  54 technician  married  tertiary      876      no   no  cellular  success                  0.9868          99  Hot                 1
+  60    retired  married secondary      523      no   no  cellular  success                  0.9862          99  Hot                 1
+  36 technician  married  tertiary      341      no   no  cellular  success                  0.9869          99  Hot                 1
+  29 technician   single secondary      113      no   no  cellular  success                  0.9876          99  Hot                 1
+  72    retired  married  tertiary     3561      no   no telephone  success                  0.9860          99  Hot                 1
+  48 unemployed  married secondary      926      no   no  cellular  success                  0.9882          99  Hot                 1
+  39 management divorced  tertiary      224      no   no  cellular  success                  0.9756          98  Hot                 1
+  58 management  married  tertiary      473      no   no  cellular  success                  0.9761          98  Hot                 1
+
+Saved metrics -> results/metrics.json
+Saved top scored leads -> results/sample_scored_leads.csv
+Saved best model (XGBoost) -> models/best_lead_scoring_model.pkl
